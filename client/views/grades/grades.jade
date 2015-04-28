@@ -1,0 +1,51 @@
+h3 Grades
+
+h4 Enter Classes
+.row
+  .col-xs-6
+    form(name='classEntry', novalidate)
+      .form-group
+        label(for='class')
+        input.form-control#class(type='text', name='class', ng-model='clName')
+      .form-group
+        button.btn.btn-info(ng-click='addClass(clName)') Sumbit Class Name
+  .col-xs-6
+h4 Enter Grades
+.row
+  .col-xs-6
+    form(name='GradeForm', novalidate)
+      .form-group
+        label(for='GradeClass') Class
+        select.form-control#GradeClass(name='GradeClass', ng-model='cl.subject')
+          option(ng-repeat='name in names') {{name}}
+      .form-group
+        label(for='grade') Grade
+        input.form-control#grade(name='grade', type='number', ng-model='cl.grade')
+      .form-group
+        label(for='date') Date
+        input.form-control#date(name='date', type='date', ng-model='cl.date')
+      .form-group
+        label(for='type') Grade for:
+        input.form-control#type(name='type', type='text', ng-model='cl.type')
+      .form-group
+        button.btn.btn-danger(ng-click='addGrade(cl)') Add Grade
+  .cols-xs-6
+    table.table.table-striped(ng-repeat='(key, value) in afUser.subjects')
+      thead
+        tr
+          th Delete
+          th Edit
+          th grade
+          th Class
+          th type
+          th Date
+        
+      tbody
+        tr(ng-repeat='grade in afUser.subjects[key]')
+          td: button.btn.btn-danger.btn-xs(ng-click='destroyGrade(grade, $index)') Delete
+          td: button.btn.btn-primary.btn-xs(ng-click='editGrade(grade, $index)') Edit
+          td {{grade.grade}}
+          td {{grade.subject}}
+          th {{grade.type}}
+          td {{grade.date | date:'yyyy-MM-dd'}}
+  .col-xs-6

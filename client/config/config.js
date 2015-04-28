@@ -10,5 +10,6 @@ angular.module('poseidon')
   .state('faq', {url: '/faq', templateUrl: '/views/general/faq.html'})
   .state('contact', {url: '/contact', templateUrl: '/views/general/contact.html'})
   .state('register', {url: '/register', templateUrl: '/views/users/users.html', controller: 'UsersCtrl'})
+  .state('grades', {url: '/grades', templateUrl: '/views/grades/grades.html', controller: 'GradesCtrl'})
   .state('login', {url: '/login', templateUrl: '/views/users/users.html', controller: 'UsersCtrl'});
 });
